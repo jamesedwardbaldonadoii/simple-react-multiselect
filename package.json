@@ -1,6 +1,6 @@
 {
   "name": "simple-react-multiselect",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple multiple selection for react",
   "main": "dist/index.cjs.js",
   "scripts": {
@@ -19,8 +19,9 @@
     "url": "https://github.com/jamesedwardbaldonadoii/simple-react-multiselect"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0",
+    "bootstrap": "4.6.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0"

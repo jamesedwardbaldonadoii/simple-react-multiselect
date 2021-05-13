@@ -1,10 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 function Menus ({ options = [], selected = [], isLoading, onSelect, onClearSelected, onRemoveSelected }) {
-  useEffect(() => {
-    console.log(selected, 'Menus selected');
-  }, [selected]);
-
   const items = options.filter(i => !selected.some(o => o.value === i.value)).map((i, $index) => (
     <div className="items d-flex align-items-center form-check mb-1 rounded w-100 px-2 py-1 cursor-pointer" key={`${i.value}-${$index}`}>
       <input id={`opt-${$index}`} name={i.value} onChange={() => onSelect(i)} className="d-none" type="checkbox" />

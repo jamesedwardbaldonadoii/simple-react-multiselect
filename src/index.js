@@ -3,6 +3,8 @@ import Menus from './Menus';
 import Portal from './Portal';
 import PropTypes from 'prop-types';
 
+import './index.css'
+
 const MultiSelectDropdown = ({ options=[], value=[], placeholder, onInputChanged, onDropdownOpen, onSelectedChange, loading }) => {
   const dropdownButtonRef = useRef();
   const dropdownMenuRef = useRef();

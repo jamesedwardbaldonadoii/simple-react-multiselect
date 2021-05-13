@@ -1,0 +1,63 @@
+.app-dropdown {
+  height: auto;
+  position: relative;
+  font-size: 0.875rem;
+}
+
+.app-dropdown .search-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  height: 36px;
+  padding-right: 33px;
+  max-width: 150px;
+}
+
+.app-dropdown input::placeholder {
+  color: #8898aa;
+  opacity: 1;
+}
+
+.selected-item {
+  background-color: #ddd;
+  color: #8898aa;
+  position: absolute;
+  right: 1em;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  top: calc(50% - 10px);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.app-filter-menu {
+  color: #545454;
+  width: 400px;
+  height: 250px;
+  border-radius: 5px;
+  background-color:white;
+  position: absolute;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 5px #ddd;
+}
+
+.app-filter-menu .clear-btn {
+  height: 1.3rem;
+  padding: 0.0rem 0.5rem;
+}
+
+.app-filter-menu .search-container input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.app-filter-menu .items:hover{
+  background-color: #ccc;
+}

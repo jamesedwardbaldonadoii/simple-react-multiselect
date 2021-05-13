@@ -22,9 +22,6 @@ function Menus(_ref) {
       onSelect = _ref.onSelect,
       onClearSelected = _ref.onClearSelected,
       onRemoveSelected = _ref.onRemoveSelected;
-  React.useEffect(function () {
-    console.log(selected, 'Menus selected');
-  }, [selected]);
   var items = options.filter(function (i) {
     return !selected.some(function (o) {
       return o.value === i.value;
@@ -121,6 +118,11 @@ var Portal = /*#__PURE__*/React.forwardRef(function refPortal(_ref, ref) {
     ref: ref
   }, children), container);
 });
+
+var e=[],t=[];function n(n,r){if(n&&"undefined"!=typeof document){var a,s=!0===r.prepend?"prepend":"append",d=!0===r.singleTag,i="string"==typeof r.container?document.querySelector(r.container):document.getElementsByTagName("head")[0];if(d){var u=e.indexOf(i);-1===u&&(u=e.push(i)-1,t[u]={}),a=t[u]&&t[u][s]?t[u][s]:t[u][s]=c();}else a=c();65279===n.charCodeAt(0)&&(n=n.substring(1)),a.styleSheet?a.styleSheet.cssText+=n:a.appendChild(document.createTextNode(n));}function c(){var e=document.createElement("style");if(e.setAttribute("type","text/css"),r.attributes)for(var t=Object.keys(r.attributes),n=0;n<t.length;n++)e.setAttribute(t[n],r.attributes[t[n]]);var a="prepend"===s?"afterbegin":"beforeend";return i.insertAdjacentElement(a,e),e}}
+
+var css = ".app-dropdown {\r\n  height: auto;\r\n  position: relative;\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.app-dropdown .search-box {\r\n  border: 1px solid #ddd;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 36px;\r\n  padding-right: 33px;\r\n  max-width: 150px;\r\n}\r\n\r\n.app-dropdown input::placeholder {\r\n  color: #8898aa;\r\n  opacity: 1;\r\n}\r\n\r\n.selected-item {\r\n  background-color: #ddd;\r\n  color: #8898aa;\r\n  position: absolute;\r\n  right: 1em;\r\n  border-radius: 100%;\r\n  width: 20px;\r\n  height: 20px;\r\n  line-height: 20px;\r\n  text-align: center;\r\n  top: calc(50% - 10px);\r\n  font-size: 11px;\r\n  cursor: pointer;\r\n}\r\n\r\n.app-filter-menu {\r\n  color: #545454;\r\n  width: 400px;\r\n  height: 250px;\r\n  border-radius: 5px;\r\n  background-color:white;\r\n  position: absolute;\r\n  border: 1px solid #ddd;\r\n  box-shadow: 0 1px 5px #ddd;\r\n}\r\n\r\n.app-filter-menu .clear-btn {\r\n  height: 1.3rem;\r\n  padding: 0.0rem 0.5rem;\r\n}\r\n\r\n.app-filter-menu .search-container input {\r\n  border: 1px solid #ddd;\r\n  border-radius: 5px;\r\n}\r\n\r\n.cursor-pointer {\r\n  cursor: pointer;\r\n}\r\n\r\n.app-filter-menu .items:hover{\r\n  background-color: #ccc;\r\n}";
+n(css,{});
 
 var MultiSelectDropdown = function MultiSelectDropdown(_ref) {
   var _ref$options = _ref.options,
