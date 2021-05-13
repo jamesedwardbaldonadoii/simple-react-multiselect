@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@babel/runtime/helpers/toConsumableArray'), require('@babel/runtime/helpers/slicedToArray'), require('react'), require('react-dom'), require('prop-types')) :
   typeof define === 'function' && define.amd ? define(['@babel/runtime/helpers/toConsumableArray', '@babel/runtime/helpers/slicedToArray', 'react', 'react-dom', 'prop-types'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global['react-multiselect'] = factory(global._toConsumableArray, global._slicedToArray, global.React, global.reactDom, global.PropTypes));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global['simple-react-multiselect'] = factory(global._toConsumableArray, global._slicedToArray, global.React, global.reactDom, global.PropTypes));
 }(this, (function (_toConsumableArray, _slicedToArray, React, reactDom, PropTypes) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

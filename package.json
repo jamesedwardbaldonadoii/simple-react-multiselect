@@ -2,7 +2,7 @@
   "name": "simple-react-multiselect",
   "version": "1.0.0",
   "description": "Simple multiple selection for react",
-  "main": "dist/index.cjs.js",  
+  "main": "dist/index.cjs.js",
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
