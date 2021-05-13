@@ -1,10 +1,11 @@
 {
   "name": "simple-react-multiselect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple multiple selection for react",
-  "main": "dist/index.cjs.js",  
+  "main": "dist/index.cjs.js",
   "scripts": {
     "build": "rollup -c",
+    "lint": "eslint --fix --ext .js,.jsx .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,9 +23,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.14.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.2",
@@ -33,8 +31,22 @@
     "@babel/preset-react": "^7.13.13",
     "@rollup/plugin-babel": "^5.3.0",
     "autoprefixer": "^10.2.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rollup": "^2.47.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-styles": "^3.14.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Menus from './Menus';
 import Portal from './Portal';
-import PropTypes from 'prop-types';
 
-const MultiSelectDropdown = ({ options=[], value=[], placeholder, onInputChanged, onDropdownOpen, onSelectedChange, loading }) => {
+const MultiSelectDropdown = ({
+  options = [], value = [], placeholder, onInputChanged, onDropdownOpen, onSelectedChange, loading,
+}) => {
   const dropdownButtonRef = useRef();
   const dropdownMenuRef = useRef();
   const dropdownInputRef = useRef();
@@ -16,41 +18,40 @@ const MultiSelectDropdown = ({ options=[], value=[], placeholder, onInputChanged
       const { current } = dropdownInputRef;
 
       const { left, top, height } = current.getBoundingClientRect();
-      const scrollTop = document.documentElement.scrollTop;
+      const { scrollTop } = document.documentElement;
 
       setStyle({
         top: `${scrollTop + top + height + 3}px`,
-        left: `${left}px`
+        left: `${left}px`,
       });
 
       if (onDropdownOpen) onDropdownOpen();
     }
   }, [isOpen]);
 
+  const showMenu = () => {
+    setIsOpen(true);
+    document.addEventListener('mousedown', handleClick);
+  };
+  const hideMenu = () => {
+    setIsOpen(false);
+    document.removeEventListener('mousedown', handleClick);
+  };
+
   const handleClick = (e) => {
     if (
-      dropdownButtonRef.current && dropdownButtonRef.current.contains(e.target) ||
-      dropdownMenuRef.current && dropdownMenuRef.current.contains(e.target)) {
+      (dropdownButtonRef.current && dropdownButtonRef.current.contains(e.target))
+      || (dropdownMenuRef.current && dropdownMenuRef.current.contains(e.target))) {
       return;
     }
 
     hideMenu();
   };
 
-  const showMenu = () => {
-    setIsOpen(true);
-    document.addEventListener('mousedown', handleClick);
-  };
-
   const onFocus = (e) => {
-    if(e.target.autocomplete) { e.target.autocomplete = (Date.now()).toString() }
+    if (e.target.autocomplete) { e.target.autocomplete = (Date.now()).toString() }
 
     showMenu();
-  };
-
-  const hideMenu = () => {
-    setIsOpen(false);
-    document.removeEventListener('mousedown', handleClick);
   };
 
   const setSelected = (selected) => {
@@ -67,24 +68,25 @@ const MultiSelectDropdown = ({ options=[], value=[], placeholder, onInputChanged
           type="text"
           autoComplete="off"
           onFocus={onFocus}
-          onChange={e => onInputChanged ? onInputChanged(e.target.value) : null}
+          onChange={(e) => (onInputChanged ? onInputChanged(e.target.value) : null)}
           placeholder={placeholder}
         />
 
-        {isOpen &&
-          <Portal id={elementId} ref={dropdownMenuRef}>
-            <div className="app-filter-menu d-flex overflow-hidden" tabIndex="1" style={style}>
-              <Menus
-                options={options}
-                selected={value}
-                isLoading={loading}
-                onSelect={(d) => setSelected([ ...value, d ])}
-                onClearSelected={() => setSelected([])}
-                onRemoveSelected={(o) => setSelected(value.filter(i => i.value !== o.value))}
-              />
-            </div>
-          </Portal>
-        }
+        {isOpen
+          && (
+            <Portal id={elementId} ref={dropdownMenuRef}>
+              <div className="app-filter-menu d-flex overflow-hidden" tabIndex="1" style={style}>
+                <Menus
+                  options={options}
+                  selected={value}
+                  isLoading={loading}
+                  onSelect={(d) => setSelected([...value, d])}
+                  onClearSelected={() => setSelected([])}
+                  onRemoveSelected={(o) => setSelected(value.filter((i) => i.value !== o.value))}
+                />
+              </div>
+            </Portal>
+          )}
       </div>
     </>
   );
@@ -92,7 +94,7 @@ const MultiSelectDropdown = ({ options=[], value=[], placeholder, onInputChanged
 
 const allowStringOrNum = PropTypes.oneOfType([
   PropTypes.string,
-  PropTypes.number
+  PropTypes.number,
 ]);
 
 const arrayOfObj = PropTypes.arrayOf(PropTypes.shape({
@@ -107,7 +109,17 @@ MultiSelectDropdown.propTypes = {
   onDropdownOpen: PropTypes.func,
   onInputChanged: PropTypes.func,
   onSelectedChange: PropTypes.func,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+};
+
+MultiSelectDropdown.defaultProps = {
+  options: [],
+  value: [],
+  placeholder: 'Search',
+  onDropdownOpen: null,
+  onInputChanged: null,
+  onSelectedChange: null,
+  loading: false,
 };
 
 export default MultiSelectDropdown;

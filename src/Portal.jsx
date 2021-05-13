@@ -1,7 +1,7 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 
-const Portal = forwardRef(function refPortal({children}, ref) {
+const Portal = forwardRef(portalFunc ({ children }, ref) => {
   const [container] = useState(document.createElement('div'));
 
   useEffect(() => {

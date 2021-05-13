@@ -1,0 +1,25 @@
+{
+    "parser": "babel-eslint", // uses babel-eslint transforms
+    "settings": {
+      "react": {
+        "version": "detect" // detect react version
+      }
+    },
+    "env": {
+      "node": true, // defines things like process.env when generating through node
+      "browser": true, // include global variables
+      "es6": true // include Promise and
+    },
+    "rules": {
+      "semi": ["error", "always", { "omitLastInOneLineBlock": true}],
+      "react/prop-types": "off",
+      "no-trailing-spaces": "error",
+      "indent": ["error", 2],
+      "quotes": [2, "single", { "avoidEscape": true }],
+      "react/no-array-index-key": "off"
+    },
+    "extends": [
+      "airbnb", // use recommended configs
+      "plugin:react/recommended"
+    ]
+  }

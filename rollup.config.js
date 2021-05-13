@@ -1,55 +1,55 @@
-import styles from "rollup-plugin-styles";
-const autoprefixer = require('autoprefixer');
+import styles from 'rollup-plugin-styles';
 import babel from '@rollup/plugin-babel';
 
+const autoprefixer = require('autoprefixer');
+
 // the entry point for the library
-const input = 'src/index.js'
+const input = 'src/index.js';
 
-// 
-var MODE = [
+//
+const MODE = [
   {
-    fomart: 'cjs'
+    fomart: 'cjs',
   },
   {
-    fomart: 'esm'
+    fomart: 'esm',
   },
   {
-    fomart: 'umd'
-  }
-]
+    fomart: 'umd',
+  },
+];
 
-var config = []
+const config = [];
 
-
-MODE.map((m) => {
-    var conf = {
-        input: input,
-        output: {
-            name: "simple-react-multiselect",
-            file: `dist/index.${m.fomart}.js`,
-            format: m.fomart,
-            exports: "auto",
+MODE.forEach((m) => {
+  const conf = {
+    input,
+    output: {
+      name: 'simple-react-multiselect',
+      file: `dist/index.${m.fomart}.js`,
+      format: m.fomart,
+      exports: 'auto',
+    },
+    external: ['react'],
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+        plugins: ['@babel/transform-runtime'],
+        babelHelpers: 'runtime',
+      }),
+      // sourcemaps(),
+      styles({
+        postcss: {
+          plugins: [
+            autoprefixer(),
+          ],
         },
-        external: ["react", /@babel\/runtime/],
-        plugins: [
-            babel({
-                exclude: 'node_modules/**',
-                plugins: ['@babel/transform-runtime'],
-                babelHelpers: 'runtime'
-            }),
-            // sourcemaps(),
-            styles({
-                postcss: {
-                    plugins: [
-                        autoprefixer()
-                    ]
-                }
-            })
-        ]
-    }
-    config.push(conf)
-})
+      }),
+    ],
+  };
+  config.push(conf);
+});
 
 export default [
   ...config,
-]
+];
