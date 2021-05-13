@@ -1,6 +1,6 @@
 {
   "name": "simple-react-multiselect",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simple multiple selection for react",
   "main": "dist/index.cjs.js",
   "scripts": {
