@@ -1,0 +1,36 @@
+{
+  "name": "simple-react-multiselect",
+  "version": "1.0.0",
+  "description": "Simple multiple selection for react",
+  "main": "dist/index.cjs.js",  
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "mutli select",
+    "react multi select"
+  ],
+  "author": "James Edward Baldonado II",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/plugin-transform-runtime": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@rollup/plugin-babel": "^5.3.0",
+    "autoprefixer": "^10.2.5",
+    "rollup": "^2.47.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-styles": "^3.14.1"
+  }
+}
